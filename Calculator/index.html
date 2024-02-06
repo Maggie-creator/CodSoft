@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Online Calculator" name="The website offers an online calculator">
+    <meta content="Online Calculator" name="online calculator">
+    <title>Online Calculator</title>
+<!-- FAVICONS -->
+    <link href="img/calculator - factor.png" rel="icon">
+<!-- STYLES -->
+    <link href="style.css" rel="stylesheet">
+<!--FONTS-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--MENU-->
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#help" class="split">Help</a>
+</div>
+  
+<!--CALCULATOR-->
+    <div class="bg">
+        <div class="flex-container" style="display: flex; align-items: center;">
+        <div id="calculator">
+            <input class="textview" id="textview">
+            <table>
+                <tr>
+                    <td><input type="button" value="C" class="button" onclick="clean()"></td>
+                    <td><input type="button" value="<" class="button" onclick="back()"></td>
+                    <td><input type="button" value="%" class="button" onclick="percentage()"></td>
+                    <td colspan="2"><input type="button" value="/" class="button" onclick="insert('/')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" class="button" onclick="insert(7)"></td>
+                    <td><input type="button" value="8" class="button" onclick="insert(8)"></td>
+                    <td><input type="button" value="9" class="button" onclick="insert(9)"></td>
+                    <td><input type="button" value="*" class="button" onclick="insert('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" class="button" onclick="insert(4)"></td>
+                    <td><input type="button" value="5" class="button" onclick="insert(5)"></td>
+                    <td><input type="button" value="6" class="button" onclick="insert(6)"></td>
+                    <td><input type="button" value="-" class="button" onclick="insert('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" class="button" onclick="insert(1)"></td>
+                    <td><input type="button" value="2" class="button" onclick="insert(2)"></td>
+                    <td><input type="button" value="3" class="button" onclick="insert(3)"></td>
+                    <td><input type="button" value="+" class="button" onclick="insert('+')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="0" class="button" onclick="insert(0)"></td>
+                    <td><input type="button" value="00" class="button" onclick="insert('00')"></td>
+                    <td><input type="button" value="." class="button" onclick="insert('.')"></td>
+                    <td colspan="3"><input type="button" value="=" class="button" onclick="equal()"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<!--JAVASCRIPT-->
+        <script type="text/javascript">
+            function insert(num) {
+                document.getElementById('textview').value = document.getElementById('textview').value+num;
+            }
+            function clean() {
+                document.getElementById('textview').value = "";
+            }
+            function back() {
+                var exp = document.getElementById('textview').value;
+                document.getElementById('textview').value = exp.substring(0,exp.length-1);
+            }
+            function equal() {
+                var exp = document.getElementById('textview').value;
+                if(exp) {
+                    document.getElementById('textview').value = eval(exp);
+                }
+            }
+            function percentage() { 
+                var exp = document.getElementById('textview').value;
+                 if(exp) {
+                    document.getElementById('textview').value = eval(exp) / 100;
+                }
+            }
+        </script>
+    </div>
+<!--ABOUT-->
+<div class="about">
+    <h2>About</h2>
+    <p>Calling all math aficionados and equation enthusiasts! The realm of calculation has been opened for you. This simple calculator can easily replace the mobile and physical calculator. Ditch the distractions and make all of your calculations on this website. Enjoy!</p>
+</div>
+<!--FOOTER-->
+<div class="footer">
+    <p>Malgorzata Mika &copy; All rights reserved.</p>
+</div>
+</body>
+</html>
